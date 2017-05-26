@@ -17,11 +17,11 @@ public class Example {
         return "Hello World!";  
     }  
     
-    @RequestMapping("/check/{catName}/{birth}")  
-    Animal check(@PathVariable String catName,@PathVariable String birth ) { 
+    @RequestMapping("/check/{catName}/{id}/")  
+    Animal check(@PathVariable String catName,@PathVariable Integer id ) { 
     	Animal animal = new Animal();
     	animal.setName(catName);
-    	animal.setBirth(birth);
+    	animal.setBirth(id.toString());
         return animal;  
     }  
       
