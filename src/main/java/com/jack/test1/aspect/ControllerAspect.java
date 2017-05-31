@@ -46,8 +46,8 @@ public class ControllerAspect {
         HttpServletResponse response =  sra.getResponse();
         User ani = (User) request.getSession().getAttribute("login_user");
         if(null==ani && !"/".equals(request.getRequestURI()) && request.getRequestURI().indexOf("/login/")==-1){
-        	request.setAttribute("has_login", false);
-        	response.sendRedirect("/");
+        	response.getWriter().append("you haven't logged in yet!");
+        	//response.sendRedirect("/");
         }
     }
     
@@ -58,7 +58,7 @@ public class ControllerAspect {
         HttpServletRequest request = sra.getRequest();
         HttpServletResponse response =  sra.getResponse();
         User ani = (User) request.getSession().getAttribute("login_user");
-        if(null==ani && !"/".equals(request.getRequestURI()) && !"/login".equals(request.getRequestURI())){
+        if(null==ani && !"/".equals(request.getRequestURI()) && request.getRequestURI().indexOf("/login/")==-1){
         	//response.sendRedirect("/");
         }
     }
