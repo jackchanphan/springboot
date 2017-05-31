@@ -7,11 +7,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    @ExceptionHandler(value=NoHandlerFoundException.class)
+    @ResponseBody
+    public String noHandlerFoundExceptionHandler(HttpServletRequest req, NoHandlerFoundException e) throws Exception{
+    	logger.error("noHandlerFoundExceptionHandler:::",e);
+		return "{\"status\":404,\"msg\":\"Page/Controller not found\"}";  	
+    }
+    
     /**
      * 系统异常处理，比如：404,500
      * @param req
