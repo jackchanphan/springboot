@@ -46,7 +46,10 @@ public class ControllerAspect {
         HttpServletResponse response =  sra.getResponse();
         User ani = (User) request.getSession().getAttribute("login_user");
         if(null==ani && !"/".equals(request.getRequestURI()) && request.getRequestURI().indexOf("/login/")==-1){
-        	response.getWriter().append("you haven't logged in yet!");
+        	response.getWriter().append("<script src=\"https://code.jquery.com/jquery-2.2.4.min.js\""
+        			+" integrity=\"sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=\" "
+        			+" crossorigin=\"anonymous\"></script>");
+        	response.getWriter().append("<h1>you haven't logged in yet!</h1>");
         	//response.sendRedirect("/");
         }
     }
