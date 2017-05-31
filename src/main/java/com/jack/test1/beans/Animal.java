@@ -1,19 +1,42 @@
 package com.jack.test1.beans;
 
-import org.springframework.context.annotation.Bean;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity  
+@Table(name="t_animal") 
 public class Animal {
+	private Long id;
 	private String name;
-	private String birth;
+	private LocalDateTime  birth;
+	
+	@Id  
+    @GeneratedValue(strategy=GenerationType.AUTO)  
+    @Column(name="id")  
+	public Long getId() {
+		return id;
+	}
 
-	public String getBirth() {
+	public void setId(Long id) {
+		this.id = id;
+	}
+	@Column(name="birth")
+	public LocalDateTime  getBirth() {
+		//return birth.getYear()+"-"+birth.getMonthValue()+"-"+birth.getDayOfMonth();
 		return birth;
 	}
 
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setBirth(LocalDateTime  date) {
+		this.birth = date;
 	}
-
+	@Column(name="name")
 	public String getName() {
 		return name;
 	}

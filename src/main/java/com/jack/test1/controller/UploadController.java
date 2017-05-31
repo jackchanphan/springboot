@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController  
 @EnableAutoConfiguration  
 public class UploadController {
-	//@RequestMapping(value="/upload",method=RequestMethod.GET)
-	@RequestMapping("/upload")
+	@RequestMapping(value="/upload",method=RequestMethod.POST)
 	String upload(){
 		return "uploaded";
 	}
