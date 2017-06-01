@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>靠谱理財</title><link rel=manifest href=manifest.json><script src=/js/jquery-1.11.3.min.js></script><script src=/js/emitter.js></script><style>.main-cover{
+				position:fixed;
+				top:0;
+				left:0;
+				width:100%;
+				height: 100%;
+				background: radial-gradient(white,gray);
+				z-index: 99999;
+			}
+			.main-cover span{
+				position:absolute;
+				font-size: 50px;
+				top:50%;
+				margin-top: -.5em;
+				left:50%;
+				margin-left: -2em;
+				color:gold;
+			}</style><link href=/css/app.50e5874b6fe7e294e3fa86e386c897a2.css rel=stylesheet></head><body><script>$('<div class="main-cover"><span>靠谱理财</span></div>').appendTo(document.body);
+  		setTimeout(function(){
+  			$('.main-cover').fadeOut(500,'swing');
+  		},3500);
+			emitter.sub('change-title',window,function(d){
+				document.title = d;
+			});</script><div id=app></div><script type=text/javascript src=/js/manifest.30e667233e6164a8a8d0.js></script><script type=text/javascript src=/js/vendor.f677013e820f1d466e3d.js></script><script type=text/javascript src=/js/app.e8bf7f82ccdd1fa5b3de.js></script></body></html>
