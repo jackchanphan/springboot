@@ -1,4 +1,4 @@
-package com.bjchat.controller;
+package com.bjchat.controller.user;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,11 +16,12 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.bjchat.beans.User;
+import com.bjchat.controller.BaseController;
 import com.bjchat.dao.TestDao;
 import com.bjchat.dao.UserDao;
 
 @RestController
-public class LoginController extends BaseController {
+public class LoginController {
 	@Autowired
 	UserDao userDao ;
 	@RequestMapping(value="/login/{username}/{psw}")

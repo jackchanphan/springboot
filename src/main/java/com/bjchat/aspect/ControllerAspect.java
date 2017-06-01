@@ -32,36 +32,38 @@ public class ControllerAspect {
 	
 	Logger logger = LoggerFactory.getLogger(ControllerAspect.class);
     // 定义切点Pointcut
-    @Pointcut("execution(* com.jack.test1.controller..*.*(..))")
+    @Pointcut("execution(* com.bjchat.controller..*.*(..))")
     public void excuteService() {
     }
     
-    @Before("execution(* com.jack.test1.controller..*.*(..))")
+    @Before("execution(* com.bjchat.controller..*.*(..))")
     public void doBeforeAdvice(JoinPoint jp) throws Exception{  
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
         HttpServletResponse response =  sra.getResponse();
         User ani = (User) request.getSession().getAttribute("login_user");
-        if(null==ani && !"/".equals(request.getRequestURI()) && request.getRequestURI().indexOf("/login/")==-1){
+        if(null==ani && !"/".equals(request.getRequestURI())
+        		&& request.getRequestURI().indexOf("/login/")==-1 && request.getRequestURI().indexOf("/error")==-1){
         	throw new Exception("no_login");
-        	//response.sendRedirect("/");
         }
     }
     
-    @After("execution(* com.jack.test1.controller..*.*(..))")
+    
+    @After("execution(* com.bjchat.controller..*.*(..))")
     public void doAfterAdvice(JoinPoint jp) throws IOException, ServletException{  
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
         HttpServletResponse response =  sra.getResponse();
         User ani = (User) request.getSession().getAttribute("login_user");
-        if(null==ani && !"/".equals(request.getRequestURI()) && request.getRequestURI().indexOf("/login/")==-1){
+        if(null==ani && !"/".equals(request.getRequestURI())
+        		&& request.getRequestURI().indexOf("/login/")==-1 && request.getRequestURI().indexOf("/error")==-1){
         	//response.sendRedirect("/");
         }
     }
     
-    @Around("execution(* com.jack.test1.controller..*.*(..))")
+    @Around("execution(* com.bjchat.controller..*.*(..))")
     public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
@@ -72,8 +74,9 @@ public class ControllerAspect {
         String url = request.getRequestURL().toString();
         String method = request.getMethod();
         String uri = request.getRequestURI();
+        String sesseionId = request.getSession().getId();
         String queryString = request.getQueryString();
-        logger.info("IP-->"+ip+"    URL-->"+url+"    METHOD-->"+method+"    URI-->"+uri+"    QUERYSTRING-->"+queryString+"    TIMESTAMP-->"+date);;
+        logger.info("sessionId-->"+sesseionId+"\tIP-->"+ip+"\tURL-->"+url+"\tMETHOD-->"+method+"\tURI-->"+uri+"\tQUERYSTRING-->"+queryString+"\tTIMESTAMP-->"+date);;
         return pjp.proceed();
     }
 }

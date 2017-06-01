@@ -33,13 +33,14 @@ public class GlobalExceptionHandler {
     public String defaultErrorHandler(HttpServletRequest req, HttpServletResponse res, Exception e) throws Exception {
         logger.error("", e);
         String error = "";
-        if("no_login".equals(e.getMessage())){
+        if("no_login".equals(e.getCause().getMessage())){
         	res.sendRedirect("/");
         	logger.info("redirect to /");
-        	return "{\"status\":500,\"msg\":\""+e.getCause().getMessage()+"\"}";
+        	return "{\"status\":401,\"msg\":\""+e.getCause().getMessage()+"\"}";
         }
         if(e.getClass().toString().equals("class org.springframework.web.servlet.NoHandlerFoundException")){
         	error="{\"status\":404,\"msg\":\"Page/Controller not found\"}";
+        	res.sendRedirect("/404.html");
         }else{
         	error = "{\"status\":500,\"msg\":\""+e.getCause().getMessage()+"\"}";
         }/*

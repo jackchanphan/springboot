@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bjchat.beans.Animal;
 import com.bjchat.dao.TestDao;
@@ -22,8 +25,10 @@ public class Example{
 	@Autowired
     private TestDao testDao;
     @RequestMapping("/")  
-    String home() {  
-        return "Hello World!";  
+    ModelAndView home() {  
+    	Map<String,String> map = new HashMap<String,String>();
+    	map.put("time", (new Date()).toString());
+        return new ModelAndView("index",map);  
     }  
     @RequestMapping("/create/{catName}/{birth}")  
     Animal check(@PathVariable String catName,@PathVariable String birth ) { 
