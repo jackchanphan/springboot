@@ -1,4 +1,4 @@
-package com.jack.test1.dao;
+package com.bjchat.dao;
 
 import javax.persistence.Table;
 
@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.jack.test1.beans.Animal;
+import com.bjchat.beans.Animal;
 
 @Repository  
 @Table(name="t_animal")  

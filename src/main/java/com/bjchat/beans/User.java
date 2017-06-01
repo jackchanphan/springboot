@@ -1,4 +1,4 @@
-package com.jack.test1.beans;
+package com.bjchat.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

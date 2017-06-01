@@ -1,4 +1,4 @@
-package com.jack.test1.controller;
+package com.bjchat.controller;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jack.test1.beans.Animal;
-import com.jack.test1.dao.TestDao;
+import com.bjchat.beans.Animal;
+import com.bjchat.dao.TestDao;
 
 @RestController  
 @EnableAutoConfiguration  

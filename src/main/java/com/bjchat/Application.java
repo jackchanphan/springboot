@@ -1,4 +1,4 @@
-package com.jack.test1;
+package com.bjchat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

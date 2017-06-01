@@ -1,4 +1,4 @@
-package com.jack.test1.controller;
+package com.bjchat.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +15,9 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.jack.test1.beans.User;
-import com.jack.test1.dao.TestDao;
-import com.jack.test1.dao.UserDao;
+import com.bjchat.beans.User;
+import com.bjchat.dao.TestDao;
+import com.bjchat.dao.UserDao;
 
 @RestController
 public class LoginController extends BaseController {

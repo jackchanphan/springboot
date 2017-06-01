@@ -1,4 +1,4 @@
-package com.jack.test1.aspect;
+package com.bjchat.aspect;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -14,16 +14,14 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.jack.test1.beans.Animal;
-import com.jack.test1.beans.User;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;;
+import com.bjchat.beans.User;;
 
 /**
  * Created by jiaobuchong on 12/23/15.

@@ -1,4 +1,4 @@
-package com.jack.test1.config;
+package com.bjchat.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
